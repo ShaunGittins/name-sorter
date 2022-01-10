@@ -1,6 +1,6 @@
 ﻿namespace name_sorter
 {
-    internal class Person
+    public class Person
     {
         public string[] FirstNames { get; set; }
         public string LastName { get; set; }
