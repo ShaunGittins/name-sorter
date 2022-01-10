@@ -16,7 +16,7 @@ namespace name_sorter.xUnitTest
             person.FirstNames = firstNames;
             person.LastName = lastName;
 
-            string expected = "Peter Bejamin Parker";
+            string expected = "Peter Benjamin Parker";
             string actual = person.GetFullName;
 
             Assert.Equal(expected, actual);
