@@ -32,8 +32,10 @@ namespace name_sorter
                 people.Sort(new CompareByLastnameFirst());
 
                 List<string> sortedPeople = new();
+                Console.WriteLine("Sorted People:");
                 foreach (Person person in people)
                 {
+                    Console.WriteLine(person.GetFullName);
                     sortedPeople.Add(person.GetFullName);
                 }
 
