@@ -7,27 +7,17 @@ namespace name_sorter
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main(string[] fileName)
         {
             string sortedFile = @"\sorted-names-list.txt";
 
-            if (args.Length == 1)
+            if (fileName.Length == 1)
             {
-                // Read File
                 string path = Directory.GetCurrentDirectory();
-                string unsortedFile = args[0];
-                List<string> unsortedPeople = File.ReadAllLines(path + unsortedFile).ToList();
+                List<string> unsortedPeople = File.ReadAllLines(path + fileName).ToList();
 
-                // Sort
-                List<Person> people = new();
-                foreach (string person in unsortedPeople) people.Add(new(person));
+                List<string> sortedPeople = PeopleSorter.Sort(unsortedPeople, new CompareByLastnameFirst());
 
-                people.Sort(new CompareByLastnameFirst());
-
-                List<string> sortedPeople = new();
-                foreach (Person person in people) sortedPeople.Add(person.GetFullName);
-
-                // Write FIle
                 File.WriteAllLines(path + sortedFile, sortedPeople);
 
                 // Print to console
