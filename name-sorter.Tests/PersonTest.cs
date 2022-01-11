@@ -9,12 +9,9 @@ namespace name_sorter.xUnitTest
         [Fact]
         public void TestGetFullName()
         {
-            string[] firstNames = new string[] { "Peter", "Benjamin" };
-            string lastName = "Parker";
+            string fullName = "Peter Benjamin Parker";
 
-            Person person = new();
-            person.FirstNames = firstNames;
-            person.LastName = lastName;
+            Person person = new(fullName);
 
             string expected = "Peter Benjamin Parker";
             string actual = person.GetFullName;

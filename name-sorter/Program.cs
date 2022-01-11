@@ -13,33 +13,26 @@ namespace name_sorter
 
             if (args.Length == 1)
             {
+                // Read File
                 string path = Directory.GetCurrentDirectory();
                 string unsortedFile = args[0];
                 List<string> unsortedPeople = File.ReadAllLines(path + unsortedFile).ToList();
 
+                // Sort
                 List<Person> people = new();
-                foreach (string person in unsortedPeople)
-                {
-                    Person newPerson = new();
-                    string[] splitNames = person.Split(' ');
-
-                    newPerson.FirstNames = splitNames[..^1];
-                    newPerson.LastName = splitNames[^1];
-
-                    people.Add(newPerson);
-                }
+                foreach (string person in unsortedPeople) people.Add(new(person));
 
                 people.Sort(new CompareByLastnameFirst());
 
                 List<string> sortedPeople = new();
-                Console.WriteLine("Sorted People:");
-                foreach (Person person in people)
-                {
-                    Console.WriteLine(person.GetFullName);
-                    sortedPeople.Add(person.GetFullName);
-                }
+                foreach (Person person in people) sortedPeople.Add(person.GetFullName);
 
+                // Write FIle
                 File.WriteAllLines(path + sortedFile, sortedPeople);
+
+                // Print to console
+                Console.WriteLine("Sorted People:");
+                foreach (string person in sortedPeople) Console.WriteLine(person);
             }
             else
             {
