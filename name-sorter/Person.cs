@@ -4,8 +4,8 @@
     {
         public Person(string fullName)
         {
-            FirstNames = fullName[fullName.LastIndexOf(' ', fullName.Length)..];
-            LastName = fullName[..fullName.LastIndexOf(' ')].TrimEnd();
+            FirstNames = fullName[..fullName.LastIndexOf(" ")];
+            LastName = fullName[(fullName.LastIndexOf(" ") + 1)..];
         }
 
         public string FirstNames { get; set; }
