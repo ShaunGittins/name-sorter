@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace name_sorter
 {
-    public class PeopleSorter
+    public class PeopleSorter : IListSorter
     {
-        public static List<string> Sort(List<string> unsortedPeople, IComparer<Person> comparer)
+        public List<string> Sort(List<string> unsortedPeople, IComparer<Person> comparer)
         {
             List<Person> people = new();
             foreach (string person in unsortedPeople) people.Add(new(person));
