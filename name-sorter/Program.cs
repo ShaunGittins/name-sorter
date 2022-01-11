@@ -14,7 +14,7 @@ namespace name_sorter
             if (fileName.Length == 1)
             {
                 string path = Directory.GetCurrentDirectory();
-                List<string> unsortedPeople = File.ReadAllLines(path + fileName).ToList();
+                List<string> unsortedPeople = File.ReadAllLines(path + fileName[0]).ToList();
 
                 // Sort
                 PeopleSorter peopleSorter = new();
