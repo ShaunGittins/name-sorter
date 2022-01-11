@@ -1,13 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace name_sorter
 {
-    internal class CompareByLastnameFirst : IComparer<Person>
+    public class CompareByLastnameFirst : IComparer<Person>
     {
         public int Compare(Person x, Person y)
         {
-            return new CaseInsensitiveComparer().Compare(x.LastName, y.LastName);
+            int result = x.LastName.CompareTo(y.LastName);
+            if (result == 0) result = x.FirstNames.CompareTo(y.FirstNames);
+            return result;
         }
     }
 }
