@@ -31,7 +31,7 @@ The steps the program takes are:
    * 'Person.cs' stores a full name split up into a last name string and given names string.
    * 'FilePersonConverter.cs' gives static methods to convert List<string> (from FILE) to List<Person> and vice-versa.
    * All 'Comparers' only take in two people, and compares them in anyway they like, returning an int value for Sort() to use.
-   * 'Program.cs' uses all of the other classes in order to read the file, sort them, write to the new file and print to screen.
+   * 'Program.cs' simply uses a reader that reads in people to be sorted and then uses writers that write to file and console.
 
 ### 2. Open-Closed
 ```C#
