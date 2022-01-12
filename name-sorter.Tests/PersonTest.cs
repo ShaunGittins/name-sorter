@@ -1,6 +1,4 @@
-﻿using System;
-using Xunit;
-using name_sorter;
+﻿using Xunit;
 
 namespace name_sorter.xUnitTest
 {
