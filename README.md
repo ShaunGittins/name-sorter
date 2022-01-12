@@ -23,10 +23,10 @@ To demonstrate the SOLID principles when sorting a list of people from an unsort
 ## SOLID Principles Showcased
 
 1. Single Responsibility
-'Person.cs' stores a full name split up into a last name string and given names string.
-'FilePersonConverter.cs' gives static methods to convert List<string> (from FILE) to List<Person> and vice-versa.
-All 'Comparers' only take in two people, and compares them in anyway they like, returning an int value for Sort() to use.
-'Program.cs' uses all of the other classes in order to read the file, sort them, write to the new file and print to screen.
+   * 'Person.cs' stores a full name split up into a last name string and given names string.
+   * 'FilePersonConverter.cs' gives static methods to convert List<string> (from FILE) to List<Person> and vice-versa.
+   * All 'Comparers' only take in two people, and compares them in anyway they like, returning an int value for Sort() to use.
+   * 'Program.cs' uses all of the other classes in order to read the file, sort them, write to the new file and print to screen.
 
 2. Open-Closed
 ```C#
@@ -43,9 +43,7 @@ Without modifiying people or the Sort function.
 
 3. Liskov Substitution
 
-
 4. Interface Segregation
-
 
 5. Dependency Inversion
 ```C#
