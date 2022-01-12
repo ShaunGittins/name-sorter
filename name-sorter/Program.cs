@@ -6,7 +6,8 @@ namespace name_sorter
     {
         static void Main(string[] args)
         {
-            List<Person> people = PersonIO.Read(args);
+            FileListReader fileReader = new(args.Length > 0 ? args[0] : "unsorted-names-list.txt");
+            List<Person> people = PersonIO.Read(fileReader);
 
             CompareByLastnameFirst comparer = new();
             people.Sort(comparer);
