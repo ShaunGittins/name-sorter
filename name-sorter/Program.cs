@@ -16,10 +16,9 @@ namespace name_sorter
                 string path = Directory.GetCurrentDirectory();
                 List<string> unsortedPeople = File.ReadAllLines(path + fileName[0]).ToList();
 
-                // Sort
-                PeopleSorter peopleSorter = new();
+
                 CompareByLastnameFirst comparer = new();
-                List<string> sortedPeople = peopleSorter.Sort(unsortedPeople, comparer);
+                List<string> sortedPeople = PeopleSorter.Sort(unsortedPeople, comparer);
 
                 File.WriteAllLines(path + sortedFile, sortedPeople);
 
