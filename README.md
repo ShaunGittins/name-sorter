@@ -44,7 +44,9 @@ Without modifiying people or the Sort function.
 3. Liskov Substitution
 
 4. Interface Segregation
-
+ We don't want to throw a bunch of NotImplementedExceptions because IComparer forces the comparers to implement parts of the interface they won't use.
+ All 'CompareByLastnameFirst' and other comparers including mocks only want to use int Compare(x, y).
+   
 5. Dependency Inversion
 ```C#
   CompareByLastnameFirst comparer = new();
