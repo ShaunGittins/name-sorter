@@ -13,13 +13,17 @@ namespace name_sorter
 
             if (fileName.Length == 1)
             {
+                // Read file
                 string path = Directory.GetCurrentDirectory();
-                List<string> unsortedPeople = File.ReadAllLines(path + fileName[0]).ToList();
+                List<string> content = File.ReadAllLines(path + fileName[0]).ToList();
+                List<Person> people = FilePersonConverter.ToPersonList(content);
 
-
+                // Sort
                 CompareByLastnameFirst comparer = new();
-                List<string> sortedPeople = PeopleSorter.Sort(unsortedPeople, comparer);
+                people.Sort(comparer);
 
+                // Write File
+                List<string> sortedPeople = FilePersonConverter.ToStringList(people);
                 File.WriteAllLines(path + sortedFile, sortedPeople);
 
                 // Print to console

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-
-namespace name_sorter
+﻿namespace name_sorter
 {
     public class Person
     {
