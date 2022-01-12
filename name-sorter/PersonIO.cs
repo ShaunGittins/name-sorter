@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace name_sorter
 {
-    internal class PersonFile
+    internal class PersonIO
     {
         internal static List<Person> Read(string[] args)
         {
@@ -22,10 +22,10 @@ namespace name_sorter
             return result;
         }
 
-        internal static void Write(List<Person> people, string targetFile)
+        internal static void Write(IListWriter writer, List<Person> people)
         {
             List<string> sortedPeople = FilePersonConverter.ToStringList(people);
-            File.WriteAllLines(Directory.GetCurrentDirectory() + targetFile, sortedPeople);
+            writer.WriteList(sortedPeople);
         }
     }
 }

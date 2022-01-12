@@ -6,14 +6,16 @@ namespace name_sorter
     {
         static void Main(string[] args)
         {
-            List<Person> people = PersonFile.Read(args);
+            List<Person> people = PersonIO.Read(args);
 
             CompareByLastnameFirst comparer = new();
             people.Sort(comparer);
 
-            PersonFile.Write(people, @"\sorted-names-list.txt");
+            FileListWriter fileWriter = new(@"\sorted-names-list.txt");
+            PersonIO.Write(fileWriter, people);
 
-            PersonListPrinter.PrintAllPeople(people);
+            ConsoleListWriter consoleWriter = new();
+            PersonIO.Write(consoleWriter, people);
         }
     }
 }
