@@ -1,7 +1,12 @@
 # Name Sorter
 
 ## Purpose
-To demonstrate the SOLID principles when sorting a list of people from an unsorted file.
+To demonstrate the SOLID principles when sorting a list of people from an unsorted file.<br/>
+The steps the program takes are:
+1. Load lines from text file "unsorted-names-list.txt"
+2. Store them into a Person object
+3. Sorts them based on whatever comparer is used
+4. Write the sorted list into a new file "sorted-names-list.txt"
 
 ## Setup and run
 
