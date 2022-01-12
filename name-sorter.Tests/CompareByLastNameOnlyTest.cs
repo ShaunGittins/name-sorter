@@ -4,40 +4,55 @@ namespace name_sorter.xUnitTest
 {
     public class CompareByLastNameOnlyTest
     {
-        [Fact]
-        public void TestSameLastName()
+        [Theory]
+        [InlineData("Kristen Stewart", "Martha Stewart")]
+        [InlineData("Will Smith", "Jaden Smith")]
+        [InlineData("Mariah Carey", "Drew Carey")]
+        [InlineData("Beau Tristan Bentley", "Harry Bentley")]
+        public void TestSameLastName(string mockPersonLeftString, string mockPersonRightString)
         {
             CompareByLastNameOnly comparer = new();
 
-            Person[] mockPeople = { new("Kristen Stewart"), new("Martha Stewart") };
+            Person mockPersonLeft = new(mockPersonLeftString);
+            Person mockPersonRight = new(mockPersonRightString);
 
-            int actual = comparer.Compare(mockPeople[0], mockPeople[1]);
+            int actual = comparer.Compare(mockPersonLeft, mockPersonRight);
             int expected = 0; // zero means the comparer considers them equal
 
             Assert.Equal(expected, actual);
         }
 
-        [Fact]
-        public void TestDifferentLastNameAlreadySorted()
+        [Theory]
+        [InlineData("Harry Potter", "Ron Weasley")]
+        [InlineData("Marin Alvarez", "Adonis Julius Archer")]
+        [InlineData("Beau Tristan Bentley", "Hunter Uriah Mathew Clarke")]
+        [InlineData("Leo Gardner", "Shelby Nathan Yoder")]
+        public void TestDifferentLastNameAlreadySorted(string mockPersonLeftString, string mockPersonRightString)
         {
             CompareByLastNameOnly comparer = new();
 
-            Person[] mockPeople = { new("Harry Potter"), new("Ron Weasley") };
+            Person mockPersonLeft = new(mockPersonLeftString);
+            Person mockPersonRight = new(mockPersonRightString);
 
-            int actual = comparer.Compare(mockPeople[0], mockPeople[1]);
+            int actual = comparer.Compare(mockPersonLeft, mockPersonRight);
             int expected = -1; // negative means the comparer considers first value lower (first)
 
             Assert.Equal(expected, actual);
         }
 
-        [Fact]
-        public void TestDifferentLastNameNotAlreadySorted()
+        [Theory]
+        [InlineData("Ron Weasley", "Harry Potter")]
+        [InlineData("Frankie Conner Ritter", "Mikayla Lopez")]
+        [InlineData("Janet Parsons", "Vaughn Lewis")]
+        [InlineData("Beau Tristan Bentley", "Marin Alvarez")]
+        public void TestDifferentLastNameNotAlreadySorted(string mockPersonLeftString, string mockPersonRightString)
         {
             CompareByLastNameOnly comparer = new();
 
-            Person[] mockPeople = { new("Ron Weasley"), new("Harry Potter") };
+            Person mockPersonLeft = new(mockPersonLeftString);
+            Person mockPersonRight = new(mockPersonRightString);
 
-            int actual = comparer.Compare(mockPeople[0], mockPeople[1]);
+            int actual = comparer.Compare(mockPersonLeft, mockPersonRight);
             int expected = 1; // positive means the comparer considers first value higher (second)
 
             Assert.Equal(expected, actual);
